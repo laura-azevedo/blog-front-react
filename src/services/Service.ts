@@ -18,3 +18,8 @@ export const login = async (url: string, dados: Object, setData: Function) => {
     const response = await api.post(url, dados)
     setData(response.data)
 }
+
+export const search = async (url: string, setData: Function, header: Object) => {
+    const response = await api.get(url, header)
+    setData(response.data)
+}
