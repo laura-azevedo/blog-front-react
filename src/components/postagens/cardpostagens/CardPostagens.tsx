@@ -1,31 +1,43 @@
 import { Link } from 'react-router-dom'
+import Postagem from '../../../models/Post'
 
-function CardPostagens() {
+interface CardPostagensProps {
+    post: Postagem
+}
+
+function CardPostagem({ post }: CardPostagensProps) {
     return (
         <div className='border-slate-900 border 
             flex flex-col rounded overflow-hidden justify-between'>
                 
             <div>
                 <div className="flex w-full bg-indigo-400 py-2 px-4 items-center gap-4">
-                    <img src='https://i.imgur.com/pK6vSCy.png'
-                         className='h-12 rounded-full' alt="" />
+                    <img
+                        src={post.user?.photo}
+                        className='h-12 rounded-full'
+                        alt={post.user?.name} />
                     <h3 className='text-lg font-bold text-center uppercase'>
-                        Nome do Usuário
+                        {post.user?.name}
                     </h3>
                 </div>
                 <div className='p-4 '>
-                    <h4 className='text-lg font-semibold uppercase'>Titulo</h4>
-                    <p>texto</p>
-                    <p>Tema: </p>
-                    <p>Data: </p>
+                    <h4 className='text-lg font-semibold uppercase'>{post.title}</h4>
+                    <p>{post.text}</p>
+                    <p>Tema: {post.theme?.description}</p>
+                    <p>Data: {new Intl.DateTimeFormat(undefined, {
+                        dateStyle: 'full',
+                        timeStyle: 'medium',
+                    }).format(new Date(post.date))}</p>
                 </div>
             </div>
             <div className="flex">
-                <Link to='' className='w-full text-white bg-indigo-400 
+                <Link to='' 
+                    className='w-full text-white bg-indigo-400 
                     hover:bg-indigo-800 flex items-center justify-center py-2'>
                     <button>Editar</button>
                 </Link>
-                <Link to='' className='text-white bg-red-400 
+                <Link to='' 
+                    className='text-white bg-red-400 
                     hover:bg-red-700 w-full flex items-center justify-center'>
                     <button>Deletar</button>
                 </Link>
@@ -34,4 +46,4 @@ function CardPostagens() {
     )
 }
 
-export default CardPostagens
+export default CardPostagem
