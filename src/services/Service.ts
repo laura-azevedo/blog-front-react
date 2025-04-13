@@ -33,3 +33,7 @@ export const update = async (url: string, dados: Object, setData: Function, head
     const response = await api.put(url, dados, header)
     setData(response.data)
 }
+
+export const deleteTheme = async (url: string, header: Object) => {
+    await api.delete(url, header)
+}
