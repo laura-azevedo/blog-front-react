@@ -36,7 +36,7 @@ function CardPostagem({ post }: CardPostagensProps) {
                     flex items-center justify-center py-2'>
                     <button>Editar</button>
                 </Link>
-                <Link to='' 
+                <Link to={`/deletarpostagem/${post.id}`} 
                     className='text-white bg-red-400 
                     hover:bg-red-700 w-full flex items-center justify-center'>
                     <button>Deletar</button>

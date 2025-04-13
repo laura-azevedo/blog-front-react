@@ -34,6 +34,6 @@ export const update = async (url: string, dados: Object, setData: Function, head
     setData(response.data)
 }
 
-export const deleteTheme = async (url: string, header: Object) => {
+export const deletar = async (url: string, header: Object) => {
     await api.delete(url, header)
 }
