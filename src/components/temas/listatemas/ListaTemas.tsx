@@ -5,6 +5,7 @@ import { AuthContext } from "../../../context/AuthContext";
 import Theme from "../../../models/Theme";
 import CardTemas from "../cardtemas/CardTemas";
 import { search } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function ListaTemas() {
 

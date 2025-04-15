@@ -129,7 +129,7 @@ function FormPostagem() {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    ToastAlerta'Erro ao cadastrar a Postagem');
+                    ToastAlerta('Erro ao cadastrar a Postagem', 'erro');
                 }
             }
         }
