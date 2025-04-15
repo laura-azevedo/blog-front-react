@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import Theme from "../../../models/Theme";
 import { update, search, register } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function FormTema() {
 
@@ -31,7 +32,7 @@ function FormTema() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado!')
+            ToastAlerta('Você precisa estar logado!','info')
             navigate('/')
         }
     }, [token])
@@ -62,12 +63,12 @@ function FormTema() {
                 await update(`/temas`, theme, setTema, {
                     headers: { 'Authorization': token }
                 })
-                alert('O Theme foi atualizado com sucesso!')
+                ToastAlerta('O Theme foi atualizado com sucesso!','sucesso')
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    alert('Erro ao atualizar o tema.')
+                    ToastAlerta('Erro ao atualizar o tema.','erro')
                 }
 
             }
@@ -76,12 +77,12 @@ function FormTema() {
                 await register(`/temas`, theme, setTema, {
                     headers: { 'Authorization': token }
                 })
-                alert('O Theme foi cadastrado com sucesso!')
+                ToastAlerta('O Theme foi cadastrado com sucesso!','sucesso')
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout();
                 } else {
-                    alert('Erro ao cadastrar o tema.')
+                    ToastAlerta('Erro ao cadastrar o tema.','erro')
                 }
 
             }
