@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'https://blogpessoal-jy5z.onrender.com/'
+    baseURL: import.meta.env.VITE_APP_URL
 })
 
 export const consult = async (url: string, setData: Function) => {
