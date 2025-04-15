@@ -2,7 +2,7 @@ import { useState, useEffect, ChangeEvent, FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import User from '../../models/User'
 import { registerUser } from '../../services/Service'
-import './Cadastro.css'
+import './cadastro.css'
 import { RotatingLines } from 'react-loader-spinner'
 import { ToastAlerta } from '../../utils/ToastAlerta'
 
